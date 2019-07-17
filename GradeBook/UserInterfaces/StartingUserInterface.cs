@@ -54,7 +54,7 @@ namespace GradeBook.UserInterfaces
                 return;
             }
             var name = parts[1];
-            var gtype = parts[2];
+            var gtype = parts[2].ToLower();
             BaseGradeBook gradeBook = null;
             if (gtype == "standard")
                 gradeBook = new StandardGradeBook(name);
