@@ -41,12 +41,13 @@ namespace GradeBook.UserInterfaces
             }
             var name = parts[1];
             var gtype = parts[2].ToLower();
+            var weighted = Boolean.Parse(parts[3]);
             BaseGradeBook gradeBook = null;
 
             if (gtype == "standard")
-                gradeBook = new StandardGradeBook(name);
+                gradeBook = new StandardGradeBook(name, weighted);
             else if (gtype == "ranked")
-                gradeBook = new RankedGradeBook(name);
+                gradeBook = new RankedGradeBook(name, weighted);
             else
             {
                 Console.WriteLine($"{gtype} is not a supported type of gradebook, please try again");
@@ -69,9 +70,9 @@ namespace GradeBook.UserInterfaces
             var gtype = parts[2].ToLower();
             BaseGradeBook gradeBook = null;
             if (gtype == "standard")
-                gradeBook = new StandardGradeBook(name);
+                gradeBook = new StandardGradeBook(name, false);
             else if (gtype == "ranked")
-                gradeBook = new RankedGradeBook(name);
+                gradeBook = new RankedGradeBook(name, false);
             else
                 Console.WriteLine($"{gtype} is not a supported type of gradebook, please try again");
 
